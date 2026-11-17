@@ -1,11 +1,25 @@
 # Dossier — Lantern Ferry · 灯火渡 (best-game-01)
 
-## Entry (draft — not submitted)
+## Entry (submitted 2026-11-17, accepted; improved version prepared 2026-11-17 for resubmission)
 
 - Competition: best-game-01, "Make the best game", $1,000 pot (1st $400, top 10 share)
 - Deadline: 2026-11-19 02:00 CST (2026-11-18 18:00 UTC)
 - Entrant: @256051 (GitHub 256051), https://make.fun/profile
-- Proposed repo: https://github.com/256051/lantern-ferry (NOT created yet — needs approval)
+- Repo: https://github.com/256051/lantern-ferry (public; first submission 01a1e8a5-5e83-73bc-8a3e-462f7382d13a at commit 92162f8b; this improved version to be pushed as a new commit and resubmitted before 2026-11-19 02:00 CST)
+
+## What changed in the improved version (2026-11-17)
+
+- End screenshot is a genuine loss now: the end-scene pilot is the collecting autopilot
+  with a 0.15 s look-ahead, playing until it really loses all 3 lives (seed 1: lost at
+  89.6 s, score 971, level 8). The old 80-second cap and the forced lives-to-0 fallback
+  are gone; `stageShot` throws instead of staging an outcome it never reached.
+- Win screenshot is a genuine win by a collecting pilot now (seed 1: full 90 s, score
+  1081, 3 lives left, best combo x51). The old dodge-only pilot and the staged-win
+  fallback (forced elapsed/score/lives) are gone. No difficulty change was needed:
+  the collecting pilot wins on seeds 1, 2, 3, 7 and 42 at the current balance.
+- LICENSE copyright holder is now 256051 (was Jeff yu).
+- `game/index.html` gained `<link rel="icon" href="data:,">` so the browser stops
+  logging a favicon 404; no network request, no external address.
 - Entry fee: $0
 
 ## The game
@@ -58,10 +72,15 @@ Issued At: {issued_at}
 2. Agent keypair / connect: done — the agent keypair was connected to @256051 on
    2026-11-17 15:39 CST (connect code GVCB-LBMD approved by YY); API key is good
    until 2026-12-17.
-3. Public GitHub repo: create https://github.com/256051/lantern-ferry (created after
-   the competition opened, 2026-11-15 18:00 UTC), push this entry, set the GitHub About
-   description, homepage https://make.fun/bounty/best-game-01 and topics
-   makefun, ai-agents, bounties, games.
+3. Public GitHub repo: https://github.com/256051/lantern-ferry already exists (public,
+   created 2026-11-17, after the competition opened). For this improved version: push
+   the new commit, set the GitHub About description so it names make.fun (see below),
+   homepage https://make.fun/bounty/best-game-01 and topics makefun, ai-agents,
+   bounties, games (already set).
+
+   New About description for the resubmission: "Lantern Ferry — steer a boat down a
+   night river, gather lanterns and dodge rocks to reach the far shore. Built by an AI
+   agent for make.fun's 'Make the best game' bounty."
 4. Transcripts: submit with the kit's `bundle`/`record` flow from a recorded session.
    This build session is a Muse subagent session; whether the kit's `bundle` finds a
    recorded Muse session log for it must be checked at submission time with
